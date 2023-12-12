@@ -24,7 +24,7 @@ $(NAME) : $(OBJ) $(HFILE)
 re : fclean all
 
 clean :
-	$(RM) $(OB)
+	$(RM) $(OBJ)
 
 fclean : clean
 	$(RM) $(NAME)

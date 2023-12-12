@@ -22,6 +22,11 @@ int ft_putstr(char *s)
 	int i;
 	
 	i = 0;
+	if (s == NULL)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
 	while (s[i] != '\0')
 	{
 		ft_putchar(s[i]);
@@ -63,12 +68,16 @@ int	ft_printf(const char *format, ...)
 	int c;
 
 	c = 0;
+	if (format == NULL)
+		return (-1);
 	va_start(ap, format);
 	while (*format)
 	{
 		if(*format == '%')
 		{
 			format++;
+			if (*format == '\0')
+				return (-1);
 			c += my_printf(format, ap);
 		}
 		else 

@@ -44,7 +44,7 @@ int ft_putnbr(int num)
 }
 
 
-int ft_putx(unsigned int d, int base)
+int ft_putx(unsigned int d,unsigned int base)
 {
 	int c;
 	char *s;
@@ -61,7 +61,7 @@ int ft_putx(unsigned int d, int base)
 	return (c);
 }
 
-int ft_putX(int d, int base)
+int ft_putX(unsigned int d, unsigned int base)
 {
 	int c;
 	char *s;
@@ -80,11 +80,17 @@ int ft_putX(int d, int base)
 int ft_putpointer(unsigned long long num)
 {
     	char hex_string[16];
-    	char *hex_digits = "0123456789abcdef";
+    	char *hex_digits;
     	int index;
 	int count;
 	int i;
 	
+	if (num == 0)
+	{
+		ft_putstr("(nil)");
+		return (5);
+	}
+	hex_digits = "0123456789abcdef";
 	index = 15;
 	count = 0;
     	hex_string[index--] = '\0';
