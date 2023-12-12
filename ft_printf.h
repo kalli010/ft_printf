@@ -17,5 +17,6 @@ int	ft_putnbr(int num);
 int	ft_printf(const char *format, ...);
 int	ft_putstr(char *s);
 int	ft_putchar(int c);
+int	my_printf(const char *format, va_list ap)
 
 #endif

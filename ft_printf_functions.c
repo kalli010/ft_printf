@@ -14,35 +14,22 @@
 
 int ft_putnbr(int num)
 {
-	int digit_count;
-    	int temp;
+	long int	number;
+	int c;
 
-    	if (num < 0)
+	c = 0;
+	number = num;
+	if (number < 0)
 	{
-        	ft_putchar('-');
-        	if (num == -2147483648)
-		{
-            		ft_putnbr(num / 10);
-            		ft_putchar('8');
-            		return 11;
-		}
-        	num = -num;
-    	}
-    	if (num >= 10)
-	{
-        	ft_putnbr(num / 10);
-    	}
-    	ft_putchar(num % 10 + '0');
-    	digit_count = 0;
-    	temp = num;
-    	while (temp > 0)
-	{
-        	digit_count++;
-        	temp /= 10;
-    	}
-    	return digit_count;
-}
-
+		ft_putchar('-');
+		number *= -1;
+		c++;
+	}
+	if (number > 9)
+		c += ft_putnbr(number / 10);
+	c += ft_putchar(number % 10 + 48);
+	return (c);
+}	
 
 int ft_putx(unsigned int d,unsigned int base)
 {
