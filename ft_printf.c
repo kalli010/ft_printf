@@ -51,7 +51,7 @@ int	my_printf(const char *format, va_list ap)
 	else if (*format == 'x')
 		c += ft_putx(va_arg(ap, unsigned int), 16);
 	else if (*format == 'X')
-		c += ft_putX(va_arg(ap, unsigned int), 16);
+		c += ft_putx_uppercase(va_arg(ap, unsigned int), 16);
 	else if (*format == 'p')
 		c += ft_putpointer(va_arg(ap, unsigned long long));
 	else if (*format == 'u')
