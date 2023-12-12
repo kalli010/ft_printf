@@ -12,15 +12,15 @@
 
 #include "ft_printf.h"
 
-int ft_putchar(int c)
+int	ft_putchar(int c)
 {
 	return (write(1, &c, 1));
 }
 
-int ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	if (s == NULL)
 	{
@@ -35,37 +35,36 @@ int ft_putstr(char *s)
 	return (i);
 }
 
-
 int	my_printf(const char *format, va_list ap)
 {
-	int c;
+	int	c;
 
 	c = 0;
-	if(*format == 'c')
+	if (*format == 'c')
 		c += ft_putchar(va_arg(ap, int));
-	else if(*format == 's')
+	else if (*format == 's')
 		c += ft_putstr(va_arg(ap, char *));
-	else if(*format == 'd')
+	else if (*format == 'd')
 		c += ft_putnbr(va_arg(ap, int));
-	else if(*format == 'i')
+	else if (*format == 'i')
 		c += ft_putnbr(va_arg(ap, int));
-	else if(*format == 'x')
+	else if (*format == 'x')
 		c += ft_putx(va_arg(ap, unsigned int), 16);
-	else if(*format == 'X')
+	else if (*format == 'X')
 		c += ft_putX(va_arg(ap, unsigned int), 16);
-	else if(*format == 'p')
+	else if (*format == 'p')
 		c += ft_putpointer(va_arg(ap, unsigned long long));
-	else if(*format == 'u')
+	else if (*format == 'u')
 		c += ft_putunsigned(va_arg(ap, unsigned int));
-	else if(*format == '%')
+	else if (*format == '%')
 		c += ft_putchar('%');
 	return (c);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	va_list ap;
-	int c;
+	va_list	ap;
+	int		c;
 
 	c = 0;
 	if (format == NULL)
@@ -73,14 +72,14 @@ int	ft_printf(const char *format, ...)
 	va_start(ap, format);
 	while (*format)
 	{
-		if(*format == '%')
+		if (*format == '%')
 		{
 			format++;
 			if (*format == '\0')
 				return (-1);
 			c += my_printf(format, ap);
 		}
-		else 
+		else
 			c += write(1, format, 1);
 		format++;
 	}
