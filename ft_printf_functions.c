@@ -48,7 +48,7 @@ int ft_putx(unsigned int d,unsigned int base)
 	return (c);
 }
 
-int ft_putX(unsigned int d, unsigned int base)
+int ft_putx_uppercase(unsigned int d, unsigned int base)
 {
 	int c;
 	char *s;
@@ -59,7 +59,7 @@ int ft_putX(unsigned int d, unsigned int base)
 		return (ft_putchar(s[d]));
 	else
 	{
-		c = ft_putX(d / base, base);
+		c = ft_putx_uppercase(d / base, base);
 		return (c + ft_putchar(s[d % base]));
 	}
 }
@@ -73,25 +73,17 @@ int ft_putpointer(unsigned long long num)
 	int i;
 	
 	if (num == 0)
-	{
-		ft_putstr("(nil)");
-		return (5);
-	}
+		return (ft_putstr("(nil)"));
 	hex_digits = "0123456789abcdef";
 	index = 15;
 	count = 0;
     	hex_string[index--] = '\0';
-	if (num == 0)
-    	{
-		hex_string[index] = '0';
-    	}
-    	while (num > 0)
+	while (num > 0)
 	{
         	hex_string[index--] = hex_digits[num % 16];
         	num /= 16;
     	}
-    	count += ft_putchar('0');
-    	count += ft_putchar('x');
+    	count += ft_putchar('0') + ft_putchar('x');
     	i = index + 1;
 	while (hex_string[i] != '\0')
 	{
