@@ -40,7 +40,7 @@ Contributions, issues, and feature requests are welcome.
 Distributed under the Apache License. See `LICENSE` file for more information.
 
 ## Author
-- kali
+- me :)
 
 ## Contact
 If you have any questions, please email elkalaizakariae010@gmail.com.
